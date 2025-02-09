@@ -1,31 +1,31 @@
 
-function $$ (selector, context = document) {
-	return Array.from(context.querySelectorAll(selector));
-}
-const ARE_WE_HOME = document.documentElement.classList.contains("home");
+// function $$ (selector, context = document) {
+// 	return Array.from(context.querySelectorAll(selector));
+// }
+// const ARE_WE_HOME = document.documentElement.classList.contains("home");
 
-let nav = document.createElement("nav");
-document.body.prepend(nav);
+// let nav = document.createElement("nav");
+// document.body.prepend(nav);
 
-let pages = [
-	{url: "./", title: "Home"},
-	{url: "projects", title: "Projects"},
-    {url: "contact", title: "Contact"},
-	{url: "https://github.com/kanarinka", title: "GitHub profile"}
-];
-for (let p of pages) {
-	let url = p.url;
-	let title = p.title;
-	url = !ARE_WE_HOME && !url.startsWith("http") ? "../" + url : url;
+// let pages = [
+// 	{url: "./", title: "Home"},
+// 	{url: "projects", title: "Projects"},
+//     {url: "contact", title: "Contact"},
+// 	{url: "https://github.com/kanarinka", title: "GitHub profile"}
+// ];
+// for (let p of pages) {
+// 	let url = p.url;
+// 	let title = p.title;
+// 	url = !ARE_WE_HOME && !url.startsWith("http") ? "../" + url : url;
 
-    nav.insertAdjacentHTML("beforeend", `<a href="${ url }">${ title }</a>` );    
+//     nav.insertAdjacentHTML("beforeend", `<a href="${ url }">${ title }</a>` );    
 
-}
+// }
 
 
-let navLinks = $$("nav a");
-let currentLink = navLinks.find(a => a.host === location.host && a.pathname === location.pathname)
-currentLink?.classList.add("current");
+// let navLinks = $$("nav a");
+// let currentLink = navLinks.find(a => a.host === location.host && a.pathname === location.pathname)
+// currentLink?.classList.add("current");
 
 
 /* COLOR SCHEME STUFF */
@@ -40,7 +40,7 @@ document.body.insertAdjacentHTML("afterbegin",
 	</label>`
 );
 
-
+/* MORE COLOR SCHEME STUFF */
 localStorage.colorScheme = localStorage.colorScheme ? localStorage.colorScheme : "light dark";
 document.documentElement.style.setProperty("color-scheme", localStorage.colorScheme);
 
